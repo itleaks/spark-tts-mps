@@ -32,6 +32,7 @@
 
 
 ## Spark-TTS 🔥
+Fixed some issues for MacOS MPS devices
 
 ### Overview
 
