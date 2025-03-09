@@ -23,7 +23,7 @@ from datetime import datetime
 
 from cli.SparkTTS import SparkTTS
 
-
+os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'
 def parse_args():
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(description="Run TTS inference.")
@@ -69,7 +69,7 @@ def run_tts(args):
     os.makedirs(args.save_dir, exist_ok=True)
 
     # Convert device argument to torch.device
-    device = torch.device(f"cuda:{args.device}")
+    device = torch.device(f"mps:{args.device}")
 
     # Initialize the model
     model = SparkTTS(args.model_dir, device)
